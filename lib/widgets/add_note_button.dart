@@ -15,12 +15,14 @@ class AddNoteButton extends StatelessWidget {
           color: kprimaryColor,
           borderRadius: BorderRadius.circular(8),
         ),
-        child: Text(
-          "Add",
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
+        child: Center(
+          child: Text(
+            "Add",
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            ),
           ),
         ),
       ),

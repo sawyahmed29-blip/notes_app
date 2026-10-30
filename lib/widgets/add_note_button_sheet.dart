@@ -10,7 +10,11 @@ class AddNoteButtonSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      padding: EdgeInsets.only(
+        left: 10,
+        right: 10,
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+      ),
       child: SingleChildScrollView(child: AddNoting()),
     );
   }
@@ -48,6 +52,7 @@ class _AddNotingState extends State<AddNoting> {
               content = value;
             },
           ),
+          SizedBox(height: 10),
           AddNoteButton(
             ontap: () {
               if (formkey.currentState!.validate()) {
@@ -58,6 +63,7 @@ class _AddNotingState extends State<AddNoting> {
               }
             },
           ),
+          SizedBox(height: 80),
         ],
       ),
     );
