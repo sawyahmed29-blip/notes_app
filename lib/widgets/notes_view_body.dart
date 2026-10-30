@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/views/edit_note_page.dart';
 import 'package:notes_app/widgets/custom_app_bar.dart';
 
 import 'package:notes_app/widgets/notes_card.dart';
@@ -8,21 +9,34 @@ class NotesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Column(
-        children: [
-          CustomAppBar(),
-
-          Expanded(
-            child: ListView.builder(
-              padding: EdgeInsets.all(0),
-              itemBuilder: (context, index) {
-                return NotesCard();
-              },
-            ),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return EditNotePage();
+            },
           ),
-        ],
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          children: [
+            SizedBox(height: 50),
+            CustomAppBar(text: "Note", icon: Icon(Icons.search)),
+            SizedBox(height: 20),
+            Expanded(
+              child: ListView.builder(
+                padding: EdgeInsets.all(0),
+                itemBuilder: (context, index) {
+                  return NotesCard();
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
