@@ -29,12 +29,15 @@ class AddNoting extends StatefulWidget {
 
 class _AddNotingState extends State<AddNoting> {
   GlobalKey<FormState> formkey = GlobalKey();
+  AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
   String? title, content;
   @override
   Widget build(BuildContext context) {
     return Form(
       key: formkey,
+      autovalidateMode: autoValidateMode,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(height: 40),
 
@@ -60,6 +63,8 @@ class _AddNotingState extends State<AddNoting> {
                 setState(() {});
               } else {
                 log("there is an problem");
+                autoValidateMode = AutovalidateMode.always;
+                setState(() {});
               }
             },
           ),
